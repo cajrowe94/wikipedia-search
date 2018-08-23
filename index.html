@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <title>Wikipedia Viewer</title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src = "app.js"></script>
+  </head>
+  <body>
+    <ul>
+      <div class = "content">
+    	<div ng-controller="MainController">
+        <h1>Wikipedia Page Search</h1>
+        <a ng-href={{randomLink}} target = "_blank">
+          <button>
+            RANDOM PAGE
+          </button>
+        </a>
+        <input type="text" ng-model="search" placeholder="Search for anything" ng-change = "searchWiki()">
+        <ul>
+          <li ng-repeat = "page in pages">
+            <h3><a ng-href={{page.url}} target="_blank">{{page.title}}</a></h3>
+            <div id = "desc">
+              <p>{{page.description}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </ul>
+  </body>
+</html>
